@@ -1,0 +1,20 @@
+<mvc:View controllerName="stockanalytics.controller.Main"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" height="100%"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartchart="sap.ui.comp.smartchart">
+    <semantic:SemanticPage headerPinnable="false" toggleHeaderOnTitleClick="false" preserveHeaderStateOnScroll="false" showFooter="false">
+        <semantic:headerContent>
+            <Input id="variantInput" type="Text" value="{mainView>/variantInput}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onShowVariantList" class="variantMode" valueHelpIconSrc="sap-icon://dropdown" width="6.5%" />
+            <smartFilterBar:SmartFilterBar id="smartFilterBarGroups" initialise="onFBarInitialise" entitySet="xTQAxSTOCK_ANALYTICS" filterChange="onFilterChange" />
+        </semantic:headerContent>
+        <semantic:content>
+            <VBox id="vbContent" fitContainer="true" height="750px">
+                <smartchart:SmartChart id="smartChartStock" showSemanticNavigationButton="false" enableAutoBinding="true" smartFilterId="smartFilterBarGroups" entitySet="xTQAxSTOCK_ANALYTICS" useChartPersonalisation="true" showDrillBreadcrumbs="false" showDrillButtons="false" showZoomButtons="false" showChartTooltip="false" showDownloadButton="true"/>
+            </VBox>
+        </semantic:content>
+    </semantic:SemanticPage>
+</mvc:View>
